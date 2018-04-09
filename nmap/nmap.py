@@ -424,16 +424,18 @@ class PortScanner(object):
                         cpe = dcpe.text
                 # store everything
                 if proto not in list(scan_result['scan'][host].keys()):
-                    scan_result['scan'][host][proto] = {}
+                    scan_result['scan'][host][proto] = list()
 
-                scan_result['scan'][host][proto][port] = {'state': state,
+                # Komand - change proto from dict to list to ease output spec
+                scan_result['scan'][host][proto].append({'port': 'port',
+                                                          'state': state,
                                                           'reason': reason,
                                                           'name': name,
                                                           'product': product,
                                                           'version': version,
                                                           'extrainfo': extrainfo,
                                                           'conf': conf,
-                                                          'cpe': cpe}
+                                                          'cpe': cpe})
                 script_id = ''
                 script_out = ''
                 # get script output if any
