@@ -427,7 +427,7 @@ class PortScanner(object):
                     scan_result['scan'][host][proto] = list()
 
                 # Komand - change proto from dict to list to ease output spec
-                scan_result['scan'][host][proto].append({'port': 'port',
+                scan_result['scan'][host][proto].append({'port': port,
                                                           'state': state,
                                                           'reason': reason,
                                                           'name': name,
